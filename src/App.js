@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-function App() {
+import  Header  from './components/Header'
+import Bmi from "./components/Bmi"
+import Ppm from "./components/Ppm"
+import Cpm from "./components/Cpm"
+import Section from "./components/Section"
+const links =[
+  {
+    link: "/bmi",
+    title: "BMI",
+    component: <Bmi/>
+  },
+  {
+    link: "/ppm",
+    title: "PPM",
+    component: <Ppm/>
+  },
+  {
+    link: "/cpm",
+    title: "CPM",
+    component: <Cpm/>
+  }
+]
+
+
+
+function App () {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <BrowserRouter>
+      <div className="App">
+        <Header links={links}/>
+        <Section links={links} />
+      </div>
+    </BrowserRouter>
   );
 }
 
